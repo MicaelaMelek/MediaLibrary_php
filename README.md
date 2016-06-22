@@ -1,2 +1,2 @@
 # MediaLibrary_php
-Php Media Library
+Librería de musica, videos y libros (en desarrollo)
