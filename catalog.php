@@ -1,4 +1,6 @@
 <?php
+include ("inc/data.php");
+include ("inc/functions.php");
 $pageTitle = "Full Catalog";
 $section = null;
 
@@ -20,8 +22,26 @@ $section = null;
     }
 include("inc/header.php");?>
 
-<div class="section page">
-    <h1>Full Catalog</h1>
+<div class="section catalog page">
+
+    <div class="wrapper">
+        <h1><?php
+            if($section != null){
+                echo "<a href ='catalog.php'>Full Catalog</a> &gt;";
+            }
+                echo $pageTitle;
+
+            ?></h1>
+        <ul class="items">
+           <?php
+           $cat = array_category($catalog,$section);
+           foreach ($cat as $id){
+                    echo get_item_html($id, $catalog[$id]);
+                }
+            ?>
+        </ul>
+    </div>
+
 </div>
 
 <?php include("inc/footer.php");?>
